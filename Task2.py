@@ -1,17 +1,31 @@
 import argparse
-import math
 import operator
+import math
 
-parser = argparse.ArgumentParser(description="Calculating universal math operations")
-parser.add_argument('operators', type=str)
-parser.add_argument('num1', type=float)
-parser.add_argument('num2', type=float)
-args = parser.parse_args()
+def process(a, op_name, b):
+    op = getattr(operator, op_name, None)
+    if op:
+        return op(a, b)
 
-performing = getattr(math, args.operators, None)
-if performing:
-    performing_res = getattr(math, args.operators)
-else:
-    performing_res = getattr(operator, args.operators)
+    op = getattr(math, op_name, None)
+    if (op):
+        return op(a, b)
 
-print(performing_res(args.num1, args.num2))
+    print("Invalid operator name")
+    exit()
+
+if name == "main" :
+    parser = argparse.ArgumentParser(description="Take two integer values and operator")
+
+    parser.add_argument("input_operator_name", type=str)
+    parser.add_argument("input_value_1", type=int)
+    parser.add_argument("input_value_2", type=int)
+
+
+    input_args = parser.parse_args()
+
+    val_1 = input_args.input_value_1
+    val_2 = input_args.input_value_2
+    operator_name = input_args.input_operator_name
+
+    print(process(val_1, operator_name, val_2))
