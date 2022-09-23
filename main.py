@@ -18,7 +18,7 @@ parser.add_argument('operation', type=str)
 parser.add_argument('y', type=float)
 args = parser.parse_args()
 
-print(calc(args.x, args.operation, args.y))
+print(calc(args.x, args.operation, args.y)
 
 
 
