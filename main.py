@@ -1,16 +1,28 @@
-# This is a sample Python script.
+import argparse
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+def calc (x , operation , y):
+    match operation:
+        case '+':
+            return x + y
+        case '-':
+            return x - y
+        case '*':
+            return x * y
+        case '/':
+            return x / y
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+parser = argparse.ArgumentParser()
+parser.add_argument('x', type=float)
+parser.add_argument('operation', type=str)
+parser.add_argument('y', type=float)
+args = parser.parse_args()
+
+print(calc(args.x, args.operation, args.y))
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+
+
+
