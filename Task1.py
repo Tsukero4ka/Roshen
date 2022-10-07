@@ -9,6 +9,8 @@ def calc (x , operation , y):
         case '*':
             return x * y
         case '/':
+            if not y:
+                raise ZeroDivisionError('Division by 0') 
             return x / y
 
 
